@@ -6,26 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".ExpenseActivity">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/back"
-        android:padding="10dp"
-        android:drawableLeft="@drawable/baseline_arrow_back_24"
-        android:text="Back"
+    <include
+        android:id="@+id/action_bar"
+        layout="@layout/action_bar"
         />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/Sec"
-        android:layout_below="@+id/back"
         android:text="Sections"
         android:textColor="@color/black"
         android:layout_centerHorizontal="true"
         android:textSize="40dp"
         android:padding="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="80dp"
         />
 
     <TextView
