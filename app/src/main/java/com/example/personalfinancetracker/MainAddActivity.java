@@ -6,25 +6,36 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainAddActivity extends AppCompatActivity {
     Databasehelper g;
-    EditText e1,e2,e3,e4;
+    EditText e1,e2,e3;
     Button s;
     Button d;
     Button b;
+
+    String[] item = {"Online","Cash","Invest"};
+    AutoCompleteTextView autoCompleteTextView;
+
+    ArrayAdapter<String> adapterItems;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_add);
         g = new Databasehelper(this);
+
+        autoCompleteTextView = findViewById(R.id.autocomplete);
+        adapterItems = new ArrayAdapter<String>(this,R.layout.list_section,item);
+        autoCompleteTextView.setAdapter(adapterItems);
+
         e1 = (EditText) findViewById(R.id.amount);
         e2 = (EditText) findViewById(R.id.description);
         e3 = (EditText) findViewById(R.id.date);
-        e4 = (EditText) findViewById(R.id.section);
         s  = (Button)   findViewById(R.id.save);
         AddData();
         d= (Button) findViewById(R.id.dele);
@@ -69,7 +80,7 @@ public class MainAddActivity extends AppCompatActivity {
                 boolean isinserted = g.insertdata(e1.getText().toString(),
                                                   e2.getText().toString(),
                                                   e3.getText().toString(),
-                                                  e4.getText().toString());
+                                                  autoCompleteTextView.getText().toString());
                 if(isinserted == true){
                     View v123 = getLayoutInflater().inflate(R.layout.stored_data,(ViewGroup) findViewById(R.id.v111));
                     Toast toast = new Toast(MainAddActivity.this);
@@ -83,7 +94,7 @@ public class MainAddActivity extends AppCompatActivity {
                 e1.setText("");
                 e2.setText("");
                 e3.setText("");
-                e4.setText("");
+                autoCompleteTextView.setText("");
             }
 
         });

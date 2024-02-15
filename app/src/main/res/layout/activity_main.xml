@@ -11,11 +11,13 @@
         android:layout_height="wrap_content"
         android:id="@+id/sign"
         android:layout_centerHorizontal="true"
-        android:text="Sign In"
+        android:text="Login"
         android:textSize="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         android:textColor="@color/black"
+        android:textStyle="bold"
         />
+
 
     <EditText
         android:layout_width="match_parent"
@@ -97,6 +99,9 @@
             android:src="@drawable/twitter"
             />
     </LinearLayout>
+
+
+
 
 
 

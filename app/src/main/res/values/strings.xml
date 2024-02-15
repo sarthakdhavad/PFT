@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Personal Finance Tracker</string>
+    <string name="Select">Select Section</string>
 </resources>

@@ -71,26 +71,39 @@
         android:inputType="date"
         />
 
-    <EditText
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/section"
-        android:layout_below="@+id/date"
-        android:layout_marginTop="30dp"
-        android:padding="20dp"
-        android:hint="       Online/Cash/Invest"
-        android:textColorHint="@color/black"
-        android:textColor="@color/black"
-        android:inputType="text"
-        />
+        android:id="@+id/con"
+        android:layout_marginTop="25dp"
+        android:layout_below="@id/date"
+        >
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:hint="@string/Select"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            >
+
+            <AutoCompleteTextView
+                android:id="@+id/autocomplete"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"/>
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
 
 
     <LinearLayout
-        android:layout_below="@+id/section"
+        android:layout_below="@+id/con"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
         android:orientation="horizontal">
 
         <Button
