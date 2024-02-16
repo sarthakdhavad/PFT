@@ -59,15 +59,6 @@ public class MonthReport extends AppCompatActivity {
             }
         });
 
-        b = (Button) findViewById(R.id.back13);
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MonthReport.this,MainAppActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
     }
 
     public void CreteSaveFile() {

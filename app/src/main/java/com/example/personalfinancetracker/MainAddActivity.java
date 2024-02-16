@@ -40,15 +40,6 @@ public class MainAddActivity extends AppCompatActivity {
         AddData();
         d= (Button) findViewById(R.id.dele);
         Delete();
-        b =(Button) findViewById(R.id.back12);
-        b.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainAddActivity.this,MainAppActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
 
     }
 

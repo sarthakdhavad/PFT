@@ -45,16 +45,6 @@ public class MoreActivity extends AppCompatActivity {
         g= new Databasehelper(this);
         double total = g.total();
 
-        b2 = (Button)findViewById(R.id.back11);
-        b2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MoreActivity.this,MainAppActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
-
         Drawable drawable = ResourcesCompat.getDrawable(getResources(),R.drawable.logo,null);
         BitmapDrawable bitmapDrawable = (BitmapDrawable) drawable;
 

@@ -13,21 +13,10 @@ public class Total extends AppCompatActivity {
 
     Databasehelper g;
     TextView t1;
-    Button button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_total);
-
-        button = (Button) findViewById(R.id.back14);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Total.this,MainAppActivity.class);
-                startActivity(intent);
-                finish();
-            }
-        });
 
         g= new Databasehelper(this);
         double TotalAmount = g.total();
