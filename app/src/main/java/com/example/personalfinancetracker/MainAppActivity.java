@@ -16,8 +16,13 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
 public class MainAppActivity extends AppCompatActivity {
 
+    FirebaseAuth auth;
+    FirebaseUser user;
     Button Add;
     Button log;
     Button v;
@@ -34,6 +39,23 @@ public class MainAppActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_app);
 
+        auth = FirebaseAuth.getInstance();
+        user = auth.getCurrentUser();
+        if(user== null){
+            Intent intent = new Intent(MainAppActivity.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+        }
+        log = findViewById(R.id.Logout);
+        log.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                FirebaseAuth.getInstance().signOut();
+                Intent intent = new Intent(MainAppActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         More =(Button) findViewById(R.id.more);
         More.setOnClickListener(new View.OnClickListener() {
@@ -74,14 +96,6 @@ public class MainAppActivity extends AppCompatActivity {
         v= (Button) findViewById(R.id.view);
         viewAll();
         g= new Databasehelper(this);
-        log = (Button) findViewById(R.id.Logout);
-        log.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(MainAppActivity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
         Add = (Button) findViewById(R.id.add);
         Add.setOnClickListener(new View.OnClickListener() {
             @Override

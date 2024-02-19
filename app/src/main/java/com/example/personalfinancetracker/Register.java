@@ -6,10 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,10 +20,11 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MainActivity extends AppCompatActivity {
+
+public class Register extends AppCompatActivity {
 
     TextInputEditText editTextemail,getEditTextpassword;
-    Button but_Login;
+    Button but;
     FirebaseAuth mAuth;
     ProgressBar bar;
     TextView t;
@@ -34,35 +34,32 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         if(currentUser != null){
-            Intent intent = new Intent(MainActivity.this, MainAppActivity.class);
+            Intent intent = new Intent(Register.this, MainAppActivity.class);
             startActivity(intent);
             finish();
         }
     }
 
-
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
+        setContentView(R.layout.activity_register);
         mAuth = FirebaseAuth.getInstance();
         editTextemail = findViewById(R.id.email);
         getEditTextpassword = findViewById(R.id.password);
-        but_Login = findViewById(R.id.login_btn);
+        but = findViewById(R.id.login_btn);
         bar = findViewById(R.id.progress);
-        t= findViewById(R.id.reg);
+        t= findViewById(R.id.log);
 
         t.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), Register.class);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
                 finish();
             }
         });
 
-        but_Login.setOnClickListener(new View.OnClickListener() {
+        but.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 bar.setVisibility(View.VISIBLE);
@@ -72,38 +69,35 @@ public class MainActivity extends AppCompatActivity {
                 mAuth = FirebaseAuth.getInstance();
 
                 if(TextUtils.isEmpty(email)){
-                    Toast.makeText(MainActivity.this, "Enter Email", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Register.this, "Enter Email", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
                 if(TextUtils.isEmpty(password)){
-                    Toast.makeText(MainActivity.this, "Enter Password", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Register.this, "Enter Password", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
-                mAuth.signInWithEmailAndPassword(email, password)
+                mAuth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener( new OnCompleteListener<AuthResult>() {
-                            @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 bar.setVisibility(View.GONE);
                                 if (task.isSuccessful()) {
-                                    Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
-                                    Intent intent = new Intent(MainActivity.this, MainAppActivity.class);
+                                    Toast.makeText(Register.this, "Account Created",
+                                            Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(Register.this, MainAppActivity.class);
                                     startActivity(intent);
                                     finish();
 
                                 } else {
-                                    Toast.makeText(MainActivity.this, "Authentication failed.",
+                                    Toast.makeText(Register.this, "Authentication failed.",
                                             Toast.LENGTH_SHORT).show();
                                 }
                             }
                         });
 
+
             }
         });
-
     }
-
 }
-
-
