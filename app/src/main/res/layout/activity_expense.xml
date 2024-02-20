@@ -8,27 +8,15 @@
 
     <include
         android:id="@+id/action_bar"
-        layout="@layout/action_bar"
+        layout="@layout/action_bar_sec"
         />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/Sec"
-        android:text="Sections"
-        android:textColor="@color/black"
-        android:layout_centerHorizontal="true"
-        android:textSize="40dp"
-        android:padding="20dp"
-        android:layout_marginTop="80dp"
-        />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/Cash"
-        android:layout_below="@+id/Sec"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="150dp"
         android:textColor="@color/black"
         android:padding="20dp"
         android:layout_marginStart="10dp"
