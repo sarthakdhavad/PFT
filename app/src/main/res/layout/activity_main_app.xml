@@ -6,25 +6,18 @@
     android:layout_height="match_parent"
     tools:context=".MainAppActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/welcome"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:text="Personal Finance Tracker"
-        android:textSize="30dp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
+
+    <include
+        android:id="@+id/action_bar"
+        layout="@layout/action_bar"
         />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/add"
         android:layout_width="180dp"
         android:layout_height="58dp"
-        android:layout_below="@+id/welcome"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="120dp"
         android:background="@drawable/button_design"
         android:textColor="#FFFFFF"
         android:text="Add Expense"
