@@ -12,7 +12,6 @@
         android:paddingBottom="10dp"
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:title="Personal Finance Tracker"
-        app:titleMarginStart="70dp"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

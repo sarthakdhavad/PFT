@@ -19,7 +19,7 @@ public class MainAddActivity extends AppCompatActivity {
     Button d;
     Button b;
 
-    String[] item = {"Online","Cash","Invest"};
+    String[] item = {"online","cash","invest"};
     AutoCompleteTextView autoCompleteTextView;
 
     ArrayAdapter<String> adapterItems;

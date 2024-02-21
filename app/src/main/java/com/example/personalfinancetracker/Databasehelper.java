@@ -81,24 +81,24 @@ public class Databasehelper extends SQLiteOpenHelper {
 
     public double Cash() {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-        String query = "SELECT SUM (" + Databasehelper.Amount + ") As cash FROM (" + Databasehelper.Table_name + ") WHERE (" + Databasehelper.Section + ")= 'Cash' ";
+        String query = "SELECT SUM (" + Databasehelper.Amount + ") As cash FROM (" + Databasehelper.Table_name + ") WHERE (" + Databasehelper.Section + ")= 'cash' ";
         Cursor res = sqLiteDatabase.rawQuery(query, null);
 
-        double cash = 0;
+        double Cash = 0;
         if (res != null && res.moveToFirst()) {
             int Column = res.getColumnIndex("cash");
 
             if (Column != -1) {
-                cash = res.getDouble(Column);
+                Cash = res.getDouble(Column);
                 res.close();
             }
         }
-        return cash;
+        return Cash;
     }
 
     public double Online() {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-        String query = "SELECT SUM (" + Databasehelper.Amount + ") As online FROM (" + Databasehelper.Table_name + ") WHERE (" + Databasehelper.Section + ")= 'Online' ";
+        String query = "SELECT SUM (" + Databasehelper.Amount + ") As online FROM (" + Databasehelper.Table_name + ") WHERE (" + Databasehelper.Section + ")= 'online' ";
         Cursor r = sqLiteDatabase.rawQuery(query, null);
 
         double online = 0;
@@ -115,19 +115,19 @@ public class Databasehelper extends SQLiteOpenHelper {
 
     public double Invest() {
         SQLiteDatabase sqLiteDatabase = this.getWritableDatabase();
-        String query = "SELECT SUM (" + Databasehelper.Amount + ") As invest FROM (" + Databasehelper.Table_name + ") WHERE (" + Databasehelper.Section + ")= 'Invest' ";
+        String query = "SELECT SUM (" + Databasehelper.Amount + ") As invest FROM (" + Databasehelper.Table_name + ") WHERE (" + Databasehelper.Section + ")= 'invest' ";
         Cursor r = sqLiteDatabase.rawQuery(query, null);
 
-        double invest = 0;
+        double Invest = 0;
         if (r != null && r.moveToFirst()) {
             int Column = r.getColumnIndex("invest");
 
             if (Column != -1) {
-                invest = r.getDouble(Column);
+                Invest = r.getDouble(Column);
                 r.close();
             }
         }
-        return invest;
+        return Invest;
     }
 
 
