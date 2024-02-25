@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 public class MainAddActivity extends AppCompatActivity {
@@ -18,6 +19,7 @@ public class MainAddActivity extends AppCompatActivity {
     Button s;
     Button d;
     Button b;
+    ProgressBar bar;
 
     String[] item = {"online","cash","invest"};
     AutoCompleteTextView autoCompleteTextView;

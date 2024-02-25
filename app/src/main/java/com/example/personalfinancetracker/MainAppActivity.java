@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
@@ -24,7 +25,7 @@ public class MainAppActivity extends AppCompatActivity {
     FirebaseAuth auth;
     FirebaseUser user;
     Button Add;
-    Button log;
+    TextView log;
     Button v;
     Button c;
     Button  t;
